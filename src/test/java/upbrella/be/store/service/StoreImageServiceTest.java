@@ -54,7 +54,7 @@ class StoreImageServiceTest {
         StoreDetail storeDetail = StoreDetail.builder()
                 .build();
         String randomId = storeImageService.makeRandomId();
-        String expectedUrl = "https://null.s3.ap-northeast-2.amazonaws.com/store-image/filename.jpg" + randomId;
+        String expectedUrl = "https://file.upbrella.co.kr/store-image/filename.jpg" + randomId;
 
         given(storeDetailService.findByStoreMetaId(storeDetailId)).willReturn(storeDetail);
         given(s3Client.putObject(any(PutObjectRequest.class), any(RequestBody.class))).willReturn(PutObjectResponse.builder().build());
