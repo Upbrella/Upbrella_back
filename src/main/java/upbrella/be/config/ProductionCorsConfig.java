@@ -14,9 +14,11 @@ public class ProductionCorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
 
         registry.addMapping("/**")
-                .allowedOrigins("https://upbrella.co.kr", "https://www.upbrella.co.kr", "https://api.upbrella.co.kr")
-                .allowedMethods(HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PATCH.name(), HttpMethod.DELETE.name(), HttpMethod.HEAD.name(), HttpMethod.OPTIONS.name())
-                .allowCredentials(true)
-                .allowedHeaders("*");
+            .allowedOrigins("https://upbrella.co.kr", "https://www.upbrella.co.kr", "https://api.upbrella.co.kr",
+                "http://localhost:3000", "http://www.localhost:3000")
+            .allowedMethods(HttpMethod.GET.name(), HttpMethod.POST.name(), HttpMethod.PATCH.name(),
+                HttpMethod.DELETE.name(), HttpMethod.HEAD.name(), HttpMethod.OPTIONS.name())
+            .allowCredentials(true)
+            .allowedHeaders("*");
     }
 }
