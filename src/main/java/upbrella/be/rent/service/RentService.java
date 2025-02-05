@@ -1,5 +1,6 @@
 package upbrella.be.rent.service;
 
+import java.time.temporal.ChronoUnit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -190,8 +191,8 @@ public class RentService {
 
     private RentalHistoryResponse toRentalHistoryResponse(HistoryInfoDto history) {
 
-        int elapsedDay = LocalDateTime.now().getDayOfYear() - history.getRentAt().getDayOfYear();
-        int totalRentalDay = 0;
+        int elapsedDay = (int) ChronoUnit.DAYS.between(history.getRentAt(), LocalDateTime.now());
+        int totalRentalDay;
 
         if (history.getReturnAt() != null) {
 
